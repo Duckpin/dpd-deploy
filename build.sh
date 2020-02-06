@@ -30,12 +30,12 @@ then
 	build_type=gulp
 fi
 
-if [-f "$webpack_path"]
+if [ -f "$webpack_path"]
 then
 	build_type = "webpack"
 fi
 
-if [-f "$webpack_path_legacy"]
+if [ -f "$webpack_path_legacy"]
 then
 	build_type = "webpack"
 fi
@@ -56,45 +56,45 @@ fi
 # check to see our build type and if so build using either gulp or grunt
 if [ "$build_type" != "none" ]
 then
-	if [ "$build_type" == "gulp_yarn" ]
-	then
-		echo "Yarn Install"
-		yarn global add gulp-cli
-		yarn install
+				if [ "$build_type" == "gulp_yarn" ]
+				then
+					echo "Yarn Install"
+					yarn global add gulp-cli
+					yarn install
 	
-		# Only build if the build:production task exists in the build path
-		if grep -q build:production "$build_file_path";
-		then
-			echo "Building project using gulp"
-			gulp build:production
-		fi
-	else
+					# Only build if the build:production task exists in the build path
+					if grep -q build:production "$build_file_path";
+					then
+						echo "Building project using gulp"
+						gulp build:production
+					fi
+		else
 	    echo "Initiating NPM Install"
 	    npm install
 
 	    # Only install and fire bower if we have a bower.json
 	    if [ -f "$bower_file_path" ]
 	    then
-		echo "Initiating Bower Install"
+				echo "Initiating Bower Install"
 
-		npm install -g bower
-		bower install
+				npm install -g bower
+				bower install
 	    fi
 
 	    if [ $build_type = "gulp" ]
 	    then
-		    if grep -q build:production "$build_file_path";
-			then
-			echo "Building project using gulp"
-			gulp build:production
-		    fi
+		    			if grep -q build:production "$build_file_path";
+									then
+									echo "Building project using gulp"
+									gulp build:production
+		    			fi
 	    else
 	    	    # Make sure we have a build command within our grunt file
-		    if grep -q build "$build_file_path";
-			then
-			echo "Building project using grunt"
-			grunt build
-		    fi
+		    		if grep -q build "$build_file_path";
+							then
+							echo "Building project using grunt"
+							grunt build
+		    		fi
 	    fi
 	fi
 fi
