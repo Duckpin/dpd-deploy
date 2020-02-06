@@ -30,12 +30,12 @@ then
 	build_type=gulp
 fi
 
-if [ -f "$webpack_path"]
+if [ -f "$webpack_path" ]
 then
 	build_type = "webpack"
 fi
 
-if [ -f "$webpack_path_legacy"]
+if [ -f "$webpack_path_legacy" ]
 then
 	build_type = "webpack"
 fi
