@@ -68,6 +68,14 @@ then
 						echo "Building project using gulp"
 						gulp build:production
 					fi
+					if [ "$build_type" == "webpack" ]
+					then
+						echo "Webpack File Found"
+						echo "Yarn Install"
+						yarn install
+						echo "Deploy Webpack"
+						yarn deploy
+					fi
 		else
 	    echo "Initiating NPM Install"
 	    npm install
