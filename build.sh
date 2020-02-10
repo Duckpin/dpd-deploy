@@ -43,23 +43,9 @@ fi
 # check to see our build type and if so build using either gulp or grunt
 if [ "$build_type" != "none" ]
 then
-	if [ "$build_type" == "webpack" ]
-	then
-		echo "Webpack File Found"
-		echo "Yarn Install"
-		yarn install
-		echo "Deploy Webpack"
-		yarn deploy
-	fi
-fi
-
-# check to see our build type and if so build using either gulp or grunt
-if [ "$build_type" != "none" ]
-then
 		if [ "$build_type" == "webpack" ]
 		then
-			echo "Webpack File Found"
-			echo "Yarn Install"
+			echo "Webpack File Found. Starting Yarn Install"
 			yarn install
 			echo "Deploy Webpack"
 			yarn deploy
