@@ -43,39 +43,14 @@ fi
 # check to see our build type and if so build using either gulp or grunt
 if [ "$build_type" != "none" ]
 then
-	if [ "$build_type" == "webpack" ]
-	then
-		echo "Webpack File Found"
-		echo "Yarn Install"
-		yarn install
-		echo "Deploy Webpack"
-		yarn deploy
-	fi
-fi
-
-# check to see our build type and if so build using either gulp or grunt
-if [ "$build_type" != "none" ]
-then
-				if [ "$build_type" == "gulp_yarn" ]
-				then
-					echo "Yarn Install"
-					yarn global add gulp-cli
-					yarn install
-	
-					# Only build if the build:production task exists in the build path
-					if grep -q build:production "$build_file_path";
-					then
-						echo "Building project using gulp"
-						gulp build:production
-					fi
-					if [ "$build_type" == "webpack" ]
-					then
-						echo "Webpack File Found"
-						echo "Yarn Install"
-						yarn install
-						echo "Deploy Webpack"
-						yarn deploy
-					fi
+		if [ "$build_type" == "webpack" ]
+			then
+				echo "Webpack File Found"
+				echo "Yarn Install"
+				yarn install
+				echo "Deploy Webpack"
+				yarn deploy
+			fi
 		else
 	    echo "Initiating NPM Install"
 	    npm install
