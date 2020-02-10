@@ -32,12 +32,12 @@ fi
 
 if [ -f "$webpack_path" ]
 then
-	build_type = "webpack"
+	build_type=webpack
 fi
 
 if [ -f "$webpack_path_legacy" ]
 then
-	build_type = "webpack"
+	build_type=webpack
 fi
 
 # check to see our build type and if so build using either gulp or grunt
