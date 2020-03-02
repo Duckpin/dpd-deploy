@@ -10,7 +10,7 @@ package_path="./package.json"
 build_file_path="./gulpfile.js"
 bower_file_path="./bower.json"
 
-webpack_path="./build/base.config.js"
+webpack_path="./Build/base.config.js"
 webpack_path_legacy="./build/config/base.config.js"
 
 # Begin from the ~/clone directory
@@ -62,7 +62,7 @@ then
 				bower install
 	    fi
 
-	    if [ $build_type = "gulp" ]
+	    if [ "$build_type" = "gulp" ]
 	    then
 		    			if grep -q build:production "$build_file_path";
 									then
