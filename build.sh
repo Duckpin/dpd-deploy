@@ -48,8 +48,8 @@ then
 			echo "Deploy Webpack"
 			yarn deploy
 		else
-	    echo "Initiating NPM Install"
-	    npm install
+	    echo "Initiating Yarn Install"
+	    yarn install
 
 	    # Only install and fire bower if we have a bower.json
 	    if [ -f "$bower_file_path" ]
