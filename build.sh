@@ -10,7 +10,7 @@ build_file_path="./gulpfile.js"
 bower_file_path="./bower.json"
 
 webpack_path="./Build/config.base.js"
-webpack_path_lower="./Build/config.base.js"
+webpack_path_lower="./build/config.base.js"
 webpack_path_legacy="./build/config/config.base.js"
 webpack_path_other_legacy="./Build/base.config.js"
 
