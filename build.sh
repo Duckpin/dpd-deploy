@@ -5,7 +5,6 @@ set -e
 # See if our project has a gulpfile either in the root directory if it's a theme
 # or in the assets/ folder if it is a plugin
 
-composer_path="./composer.json"
 package_path="./package.json"
 build_file_path="./gulpfile.js"
 bower_file_path="./bower.json"
