@@ -17,13 +17,6 @@ webpack_path_legacy="./build/config/base.config.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd clone
 
-# If we have composer dependencies make sure they are installed
-if [ -f "$composer_path" ]
-then
-	echo "Composer File found. Starting composer install."
-	composer install
-fi
-
 if [ -f "$build_file_path" ]
 then
 	echo "Gulpfile found. Starting build process"
