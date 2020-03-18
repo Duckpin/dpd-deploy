@@ -43,9 +43,9 @@ then
 		if [ "$build_type" == "webpack" ]
 		then
 			echo "Webpack File Found. Starting Yarn Install"
-			sudo yarn install
+			yarn install
 			echo "Deploy Webpack"
-			sudo yarn deploy
+			yarn deploy
 		else
 	    echo "Initiating Yarn Install"
 	    yarn install
