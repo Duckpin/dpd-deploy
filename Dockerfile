@@ -10,7 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 RUN apt-get install -y nodejs
 RUN npm install -g yarn
-RUN yarn install -g composer
+RUN yarn global add composer
 
 COPY *.sh /
 RUN chmod +x /*.sh
