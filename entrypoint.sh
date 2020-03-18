@@ -14,7 +14,8 @@ webpack_path="./Build/config.base.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd ${working_directory:-./}
 
-pwd
+echo "got to"
+echo ${working_directory:-./}
 
 if [ -f "$webpack_path" ]
 then
