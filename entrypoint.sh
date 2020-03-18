@@ -20,9 +20,8 @@ cd ${working_directory:-./}
 if [ -f "$composer_path" ]
 then
 echo "Adding Composer"
-	yarn global add composer
 	echo "Composer File found. Starting composer install."
-	composer install
+	// composer install
 fi
 
 if [ -f "$webpack_path" ]
