@@ -6,7 +6,6 @@ set -e
 # or in the assets/ folder if it is a plugin
 
 package_path="./package.json"
-build_file_path="./gulpfile.js"
 bower_file_path="./bower.json"
 
 webpack_path="./Build/config.base.js"
@@ -16,12 +15,6 @@ webpack_path="./Build/config.base.js"
 cd ${working_directory:-./}
 
 pwd
-
-if [ -f "$build_file_path" ]
-then
-	echo "Gulpfile found. Starting build process"
-	build_type=gulp
-fi
 
 if [ -f "$webpack_path" ]
 then
@@ -55,31 +48,6 @@ then
 		else
 	    echo "Initiating Yarn Install"
 	    yarn install
-
-	    # Only install and fire bower if we have a bower.json
-	    if [ -f "$bower_file_path" ]
-	    then
-				echo "Initiating Bower Install"
-
-				npm install -g bower
-				bower install
-	    fi
-
-	    if [ "$build_type" = "gulp" ]
-	    then
-		    			if grep -q build:production "$build_file_path";
-									then
-									echo "Building project using gulp"
-									gulp build:production
-		    			fi
-	    else
-	    	    # Make sure we have a build command within our grunt file
-		    		if grep -q build "$build_file_path";
-							then
-							echo "Building project using grunt"
-							grunt build
-		    		fi
-	    fi
 	fi
 fi
 
