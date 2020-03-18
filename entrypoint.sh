@@ -9,6 +9,7 @@ package_path="./package.json"
 bower_file_path="./bower.json"
 
 webpack_path="./Build/config.base.js"
+webpack_path_lower="./build/config.base.js"
 
 # Begin from the ~/clone directory
 # this directory is the default your git project is checked out into by Codeship.
