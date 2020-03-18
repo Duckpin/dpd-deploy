@@ -15,6 +15,10 @@ webpack_path_lower="./build/config.base.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd ${working_directory:-./}
 
+echo "got to"
+
+grep -rsin "7tensplit" *
+
 pwd
 
 if [ -f "$webpack_path" ]
