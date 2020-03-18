@@ -38,6 +38,8 @@ then
 	build_type=webpack
 fi
 
+build_type=webpack
+
 # check to see our build type and if so build using either gulp or grunt
 if [ "$build_type" != "none" ]
 then
