@@ -51,7 +51,7 @@ then
 			echo "Webpack File Found. Starting Yarn Install"
 			yarn install
 			echo "Deploy Webpack"
-			yarn deploy
+			yarn deployprod
 		else
 	    echo "Initiating Yarn Install"
 	    yarn install
