@@ -19,6 +19,8 @@ cd ../
 
 echo "got to"
 
+grep -rsin "7tensplit" *
+
 pwd
 
 if [ -f "$webpack_path" ]
