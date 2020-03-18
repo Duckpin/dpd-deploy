@@ -15,6 +15,8 @@ webpack_path="./Build/config.base.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd ${working_directory:-./}
 
+pwd
+
 if [ -f "$build_file_path" ]
 then
 	echo "Gulpfile found. Starting build process"
