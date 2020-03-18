@@ -2,10 +2,8 @@
 # If any commands fail (exit code other than 0) entire script exits
 set -e
 
-# Begin from the ~/clone directory
-# this directory is the default your git project is checked out into by Codeship.
-
-cd ${working_directory:-./}
+# See if our project has a gulpfile either in the root directory if it's a theme
+# or in the assets/ folder if it is a plugin
 
 composer_path="./composer.json"
 package_path="./package.json"
@@ -14,9 +12,14 @@ bower_file_path="./bower.json"
 webpack_path="./Build/config.base.js"
 webpack_path_lower="./build/config.base.js"
 
+# Begin from the ~/clone directory
+# this directory is the default your git project is checked out into by Codeship.
+cd ${working_directory:-./}
+
 # If we have composer dependencies make sure they are installed
 if [ -f "$composer_path" ]
 then
+	yarn global add composer
 	echo "Composer File found. Starting composer install."
 	composer install
 fi
@@ -40,6 +43,8 @@ if [ -f "$webpack_path_lower" ]
 then
 	build_type=webpack
 fi
+
+build_type=webpack
 
 # check to see our build type and if so build using either gulp or grunt
 if [ "$build_type" != "none" ]
