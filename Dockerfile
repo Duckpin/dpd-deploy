@@ -9,8 +9,6 @@ RUN apt-get update \
 
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 
-USER docker
-
 RUN apt-get install -y nodejs
 RUN npm install -g yarn
 
