@@ -14,6 +14,13 @@ bower_file_path="./bower.json"
 webpack_path="./Build/config.base.js"
 webpack_path_lower="./build/config.base.js"
 
+# If we have composer dependencies make sure they are installed
+if [ -f "$composer_path" ]
+then
+	echo "Composer File found. Starting composer install."
+	composer install
+fi
+
 if [ -f "$webpack_path" ]
 then
 	build_type=webpack
