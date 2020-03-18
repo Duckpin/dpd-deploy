@@ -50,6 +50,7 @@ then
 		then
 			echo "Webpack File Found. Starting Yarn Install"
 			yarn install
+      cd ../
 			echo "Deploy Webpack"
 			yarn deploy
 		else
