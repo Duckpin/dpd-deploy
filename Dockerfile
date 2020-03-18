@@ -1,5 +1,9 @@
 FROM debian:9.7-slim
 
+USER duckpin
+
+RUN chown -R derek ~/.config && chown -R derek ~/.cache
+
 RUN apt-get update \
   && apt-get install -y git \
   && apt-get install -y wget \
