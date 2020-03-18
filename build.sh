@@ -10,9 +10,6 @@ build_file_path="./gulpfile.js"
 bower_file_path="./bower.json"
 
 webpack_path="./Build/config.base.js"
-webpack_path_lower="./build/config.base.js"
-webpack_path_legacy="./build/config/config.base.js"
-webpack_path_other_legacy="./Build/base.config.js"
 
 # Begin from the ~/clone directory
 # this directory is the default your git project is checked out into by Codeship.
@@ -30,7 +27,7 @@ then
 fi
 
 if [ -f "$webpack_path_legacy" ]
-then
+then	
 	build_type=webpack
 fi
 
