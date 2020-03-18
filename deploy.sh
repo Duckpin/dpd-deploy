@@ -37,17 +37,41 @@ git config --global core.sshCommand "ssh -i $WPE_SSH_KEY_PRIVATE_PATH -o UserKno
 # This is considered legacy wpengine setup and should be deprecated. We'll keep this workflow in place for backwards compatibility.
 target_wpe_install=${WPE_INSTALL}
 
-# In WP Engine's multi-environment setup, we'll target each instance based on branch with variables to designate them individually.
 if [[ "$CI_BRANCH" == "master" && -n "$WPE_INSTALL" ]]
 then
-    target_wpe_install=${WPE_INSTALL}
+    repo=production
+else
+    if [[ "$CI_BRANCH" == "develop" && -n "$WPE_INSTALL" ]]
+    then
+        repo=staging
+    fi
 fi
 
-echo -e  "Install: ${WPE_INSTALL}"
+# In WP Engine's multi-environment setup, we'll target each instance based on branch with variables to designate them individually.
+if [[ "$CI_BRANCH" == "master" && -n "$WPE_INSTALL_PROD" ]]
+then
+    target_wpe_install=${WPE_INSTALL_PROD}
+    repo=production
+fi
+
+if [[ "$CI_BRANCH" == "staging" && -n "$WPE_INSTALL_STAGE" ]]
+then
+    target_wpe_install=${WPE_INSTALL_STAGE}
+    repo=production
+fi
+
+if [[ "$CI_BRANCH" == "develop" && -n "$WPE_INSTALL_DEV" ]]
+then
+    target_wpe_install=${WPE_INSTALL_DEV}
+    repo=production
+fi
+
+echo -e  "Install: ${WPE_INSTALL_PROD} or ${WPE_INSTALL}"
+echo -e  "Repo: ${repo}"
 
 # Begin from the clone directory
 # this directory is the default your git project is checked out into by Codeship.
-cd build
+cd clone
 
 # Get official list of files/folders that are not meant to be on production if $EXCLUDE_LIST is not set.
 if [[ -z "${EXCLUDE_LIST}" ]]; then
@@ -74,19 +98,19 @@ rm exclude-list.txt
 # go back home
 cd ..
 
-# Clone the WP Engine files to the deployment directory
+# Clone the WPEngine files to the deployment directory
 # if we are not force pushing our changes
 if [[ "$CI_MESSAGE" != *#force* ]]
 then
     force=''
-    git clone git@git.wpengine.com:production/${target_wpe_install}.git ./deployment
+    git clone git@git.wpengine.com:${repo}/${target_wpe_install}.git ./deployment
 else
     force='-f'
 fi
 
 # If there was a problem cloning, exit
 if [ "$?" != "0" ] ; then
-    echo "Unable to clone production"
+    echo "Unable to clone ${repo}"
     kill -SIGINT $$
 fi
 
@@ -124,12 +148,12 @@ then
 fi
 
 # Move files into the deployment folder
-rsync -a ../build/* ./wp-content/${PROJECT_TYPE}s/${REPO_NAME}
+rsync -a ../clone/* ./wp-content/${PROJECT_TYPE}s/${REPO_NAME}
 
 # Stage, commit, and push to wpengine repo
-git remote add production git@git.wpengine.com:production/${target_wpe_install}.git
+git remote add ${repo} git@git.wpengine.com:${repo}/${target_wpe_install}.git
 
 git add --all
-git commit -am "Deployment to ${target_wpe_install} production by $CI_COMMITTER_NAME from $CI_NAME"
+git commit -am "Deployment to ${target_wpe_install} $repo by $CI_COMMITTER_NAME from $CI_NAME"
 
-git push ${force} production master
+git push ${force} ${repo} master
