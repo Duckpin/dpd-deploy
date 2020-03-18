@@ -15,8 +15,9 @@ webpack_path_lower="./build/config.base.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd ${working_directory:-./}
 
+cd ../
+
 echo "got to"
-echo ${working_directory:-./}
 
 pwd
 
