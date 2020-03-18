@@ -5,6 +5,7 @@ set -e
 # See if our project has a gulpfile either in the root directory if it's a theme
 # or in the assets/ folder if it is a plugin
 
+composer_path="./composer.json"
 package_path="./package.json"
 bower_file_path="./bower.json"
 
@@ -15,11 +16,12 @@ webpack_path_lower="./build/config.base.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd ${working_directory:-./}
 
-echo "got to"
-
-grep -rsin "7tensplit" *
-
-pwd
+# If we have composer dependencies make sure they are installed
+if [ -f "$composer_path" ]
+then
+	echo "Composer File found. Starting composer install."
+	composer install
+fi
 
 if [ -f "$webpack_path" ]
 then
