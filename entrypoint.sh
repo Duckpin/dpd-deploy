@@ -18,6 +18,8 @@ cd ${working_directory:-./}
 echo "got to"
 echo ${working_directory:-./}
 
+pwd
+
 if [ -f "$webpack_path" ]
 then
 	build_type=webpack
