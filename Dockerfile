@@ -9,9 +9,6 @@ RUN apt-get update \
 
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 
-RUN adduser --disabled-password --gecos '' docker
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
 USER docker
 
 RUN apt-get install -y nodejs
