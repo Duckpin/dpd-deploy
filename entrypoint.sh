@@ -19,9 +19,6 @@ cd ${working_directory:-./}
 # If we have composer dependencies make sure they are installed
 if [ -f "$composer_path" ]
 then
-echo "Adding Composer"
-	echo "Composer File found. Starting composer install."
-	// composer install
 fi
 
 if [ -f "$webpack_path" ]
