@@ -9,11 +9,11 @@ RUN apt-get update \
 
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 
-RUN adduser --disabled-password --gecos '' duckpin
-RUN adduser duckpin sudo
+RUN adduser --disabled-password --gecos '' docker
+RUN adduser docker sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-USER duckpin
+USER docker
 
 RUN apt-get install -y nodejs
 RUN npm install -g yarn
