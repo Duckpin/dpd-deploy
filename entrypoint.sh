@@ -13,7 +13,7 @@ webpack_path="./Build/config.base.js"
 
 # Begin from the ~/clone directory
 # this directory is the default your git project is checked out into by Codeship.
-cd clone
+cd ${working_directory:-./}
 
 if [ -f "$build_file_path" ]
 then
