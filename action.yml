@@ -1,6 +1,6 @@
 name: 'Build Yarn and npm'
 description: 'Builds Yarn or npm files'
-author: 'Linchpin'
+author: 'Duckpin'
 inputs:
   working_directory:
     description: 'The directory that contains the Yarn or npm files'
