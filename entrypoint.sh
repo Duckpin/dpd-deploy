@@ -16,11 +16,6 @@ webpack_path_lower="./build/config.base.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd ${working_directory:-./}
 
-# If we have composer dependencies make sure they are installed
-if [ -f "$composer_path" ]
-then
-fi
-
 if [ -f "$webpack_path" ]
 then
 	build_type=webpack
