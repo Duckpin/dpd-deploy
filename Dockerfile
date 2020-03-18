@@ -11,11 +11,6 @@ RUN sudo curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g yarn
 
-RUN curl -sS https://getcomposer.org/installer | \
-            php -- --install-dir=/usr/bin/ --filename=composer
-
-RUN "composer install"
-
 COPY *.sh /
 RUN chmod +x /*.sh
 
