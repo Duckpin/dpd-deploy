@@ -19,7 +19,8 @@ cd ${working_directory:-./}
 # If we have composer dependencies make sure they are installed
 if [ -f "$composer_path" ]
 then
-	yarn add -D composer
+echo "Adding Composer"
+	yarn global add composer
 	echo "Composer File found. Starting composer install."
 	composer install
 fi
