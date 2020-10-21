@@ -4,6 +4,7 @@ RUN apt-get update \
   && apt-get install -y git \
   && apt-get install -y wget \
   && apt-get install -y curl \
+  && apt-get -y install sudo \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
