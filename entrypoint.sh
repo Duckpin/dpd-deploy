@@ -15,25 +15,25 @@ webpack_path_lower="./build/config.base.js"
 # this directory is the default your git project is checked out into by Codeship.
 cd ${working_directory:-./}
 
-if [ -f "$webpack_path" ]
-then
-	build_type=webpack
-fi
+# if [ -f "$webpack_path" ]
+# then
+# 	build_type=webpack
+# fi
 
-if [ -f "$webpack_path_legacy" ]
-then	
-	build_type=webpack
-fi
+# if [ -f "$webpack_path_legacy" ]
+# then	
+# 	build_type=webpack
+# fi
 
-if [ -f "$webpack_path_other_legacy" ]
-then
-	build_type=webpack
-fi
+# if [ -f "$webpack_path_other_legacy" ]
+# then
+# 	build_type=webpack
+# fi
 
-if [ -f "$webpack_path_lower" ]
-then
-	build_type=webpack
-fi
+# if [ -f "$webpack_path_lower" ]
+# then
+# 	build_type=webpack
+# fi
 
 build_type=webpack
 
@@ -44,8 +44,8 @@ then
 		then
 			echo "Webpack File Found. Starting Yarn Install"
 			yarn install
-			echo "Deploy Webpack"
-			yarn build:production
+			echo "Compiling"
+			yarn deploy
 		else
 	    echo "Initiating Yarn Install"
 	    yarn install
