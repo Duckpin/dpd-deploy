@@ -5,7 +5,7 @@ RUN apt-get update \
   && apt-get install -y wget \
   && apt-get install -y curl \
   && apt-get -y install sudo \
-  && apt-get -y install php \
+  && apt-get -y install php7.2 php-ext-mbstring php-ext-simplexml  \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
