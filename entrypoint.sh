@@ -52,4 +52,6 @@ then
 	fi
 fi
 
+composer install
+
 cd ..
