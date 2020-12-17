@@ -17,8 +17,8 @@ LABEL org.opencontainers.image.source="https://github.com/MilesChou/composer-act
     maintainer="MilesChou <jangconan@gmail.com>"
 
 RUN set -xe && \
-    apt-get install git \
-        unzip
+    apt-get install git -y \
+        unzip -y
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_MEMORY_LIMIT=-1 \
