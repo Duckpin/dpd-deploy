@@ -17,7 +17,7 @@ LABEL org.opencontainers.image.source="https://github.com/MilesChou/composer-act
     maintainer="MilesChou <jangconan@gmail.com>"
 
 RUN set -xe && \
-    apk add --no-cache \
+    apt-get install --no-cache \
         git \
         unzip
 
