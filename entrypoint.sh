@@ -37,6 +37,9 @@ cd ${working_directory:-./}
 
 build_type=webpack
 
+echo "Starting Composer Install"
+composer install
+
 # check to see our build type and if so build using either gulp or grunt
 if [ "$build_type" != "none" ]
 then
