@@ -14,5 +14,6 @@ RUN npm install -g yarn
 
 COPY *.sh /
 RUN chmod +x /*.sh
-
+RUN pwd
+RUN ls -l
 ENTRYPOINT ["/entrypoint.sh"]
