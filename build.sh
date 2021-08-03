@@ -11,6 +11,8 @@ bower_file_path="./bower.json"
 
 webpack_path="./Build/config.base.js"
 
+codekit_path="./config.codekit3"
+
 # Begin from the ~/clone directory
 # this directory is the default your git project is checked out into by Codeship.
 cd clone
@@ -39,6 +41,11 @@ fi
 if [ -f "$webpack_path_lower" ]
 then
 	build_type=webpack
+fi
+
+if [ -f "$codekit_path" ]
+then
+	build_type=none
 fi
 
 # check to see our build type and if so build using either gulp or grunt
