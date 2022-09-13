@@ -54,6 +54,12 @@ then
     repo=production
 fi
 
+if [[ "$CI_BRANCH" == "main" && -n "$WPE_INSTALL_PROD" ]]
+then
+    target_wpe_install=${WPE_INSTALL_PROD}
+    repo=production
+fi
+
 if [[ "$CI_BRANCH" == "staging" && -n "$WPE_INSTALL_STAGE" ]]
 then
     target_wpe_install=${WPE_INSTALL_STAGE}
