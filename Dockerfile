@@ -1,6 +1,6 @@
 FROM debian:9.7-slim
 
-RUN apt-get -y update \
+RUN apt-get update \
   && apt-get install -y git \
   && apt-get install -y wget \
   && apt-get install -y curl \
