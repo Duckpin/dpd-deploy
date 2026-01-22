@@ -1,15 +1,10 @@
-FROM debian:9.7-slim
+FROM node:20-bookworm-slim
 
 RUN apt-get update \
-  && apt-get install -y git \
-  && apt-get install -y wget \
-  && apt-get install -y curl \
+  && apt-get install -y --no-install-recommends git wget curl ca-certificates openssh-client \
   && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
-
-RUN apt-get install -y nodejs
-RUN npm install -g yarn
+RUN corepack enable
 
 COPY *.sh /
 RUN chmod +x /*.sh
